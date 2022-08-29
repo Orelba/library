@@ -1,2 +1,2 @@
-# library
+# Library
 A Library App
