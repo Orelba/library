@@ -6,12 +6,51 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library</title>
+  <link rel="stylesheet" href="https://use.typekit.net/efj3emf.css">
   <link rel="stylesheet" href="style.css">
   <script src="library.js" defer></script>
 </head>
 
 <body>
+  <table class="books-table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Author</th>
+        <th scope="col">Pages</th>
+        <th scope="col">Status</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody class="books">
+    </tbody>
+  </table>
+  <button class="new-book-btn">New Book</button>
 
+  <div class="modal">
+    <div class="modal-content">
+      <span class="close-modal-btn noselect">&times;</span>
+      <form class="new-book-form" action="#" onsubmit="return addBookToLibrary()">
+        <div class="input-container">
+          <label for="title">Title:</label>
+          <input type="text" name="title" id="title" required>
+        </div>
+        <div class="input-container">
+          <label for="author">Author:</label>
+          <input type="text" name="author" id="author" required>
+        </div>
+        <div class="input-container">
+          <label for="pages">Pages:</label>
+          <input type="tel" name="pages" id="pages" inputmode="numeric" pattern="^[0-9]*$" required>
+        </div>
+        <div class="checkbox-container">
+          <label for="read">Read?&nbsp;</label>
+          <input type="checkbox" name="read" id="read">
+        </div>
+        <button class="add-book-btn">Add Book</button>
+      </form>
+    </div>
+  </div>
 </body>
 
 </html>
