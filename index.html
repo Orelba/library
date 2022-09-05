@@ -12,24 +12,35 @@
 </head>
 
 <body>
-  <table class="books-table">
-    <thead>
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Author</th>
-        <th scope="col">Pages</th>
-        <th scope="col">Status</th>
-        <th scope="col">&nbsp;</th>
-      </tr>
-    </thead>
-    <tbody class="books">
-    </tbody>
-  </table>
-  <button class="new-book-btn">New Book</button>
+  <header>
+    <h1 class="noselect">Library</h1>
+  </header>
+
+  <main>
+    <table class="books-table">
+      <thead>
+        <tr class="noselect">
+          <th scope="col">Name</th>
+          <th scope="col">Author</th>
+          <th scope="col">Pages</th>
+          <th scope="col">Status</th>
+          <th scope="col" class="new-book-btn-container"><button class="new-book-btn noselect">New Book</button></th>
+        </tr>
+      </thead>
+      <tbody class="books">
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>Created by Orel Barzilay</p>
+    <a href="https://github.com/Orelba/calculator" target="_blank"><img src="images/GitHub-Mark-32px.png" alt="Github Icon"></a>
+  </footer>
 
   <div class="modal">
     <div class="modal-content">
       <span class="close-modal-btn noselect">&times;</span>
+      <h2>New Book</h2>
       <form class="new-book-form" action="#" onsubmit="return addBookToLibrary()">
         <div class="input-container">
           <label for="title">Title:</label>
@@ -41,13 +52,13 @@
         </div>
         <div class="input-container">
           <label for="pages">Pages:</label>
-          <input type="tel" name="pages" id="pages" inputmode="numeric" pattern="^[0-9]*$" required>
+          <input type="number" name="pages" id="pages" required>
         </div>
         <div class="checkbox-container">
           <label for="read">Read?&nbsp;</label>
           <input type="checkbox" name="read" id="read">
         </div>
-        <button class="add-book-btn">Add Book</button>
+        <button class="add-book-btn noselect">Add To Library</button>
       </form>
     </div>
   </div>

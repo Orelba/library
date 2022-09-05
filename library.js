@@ -69,7 +69,7 @@ function displayLastBook() {
 function createDeleteButton(tableRow) {
   const button = document.createElement('button')
   button.innerHTML = 'Delete';
-  button.classList.add('delete-btn')
+  button.classList.add('delete-btn', 'noselect')
   button.setAttribute('onclick', 'deleteBook(this)')
   const newCell = tableRow.insertCell()
   newCell.appendChild(button)
@@ -91,7 +91,7 @@ function deleteBook(deleteBtn) {
 function createStatusButton(bookObject, tableCell) {
   const button = document.createElement('button')
   button.innerHTML = bookObject.read
-  button.classList.add('status-btn')
+  button.classList.add('status-btn', 'noselect')
   button.setAttribute('onclick', 'changeBookStatus(this)')
   tableCell.appendChild(button)
 }
