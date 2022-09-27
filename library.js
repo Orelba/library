@@ -8,15 +8,17 @@ elCloseModalBtn.addEventListener('click', closeNewBookModal)
 
 let myLibrary = []
 
-function Book(title, author, pages, read) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.read = read
-}
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.read = read
+  }
 
-Book.prototype.toggleRead = function() {
-  (this.read === 'Read') ? this.read = 'Not Read' : this.read = 'Read'
+  toggleRead() {
+    (this.read === 'Read') ? this.read = 'Not Read' : this.read = 'Read'
+  }
 }
 
 // Some Books 
@@ -46,8 +48,8 @@ function insertBookRow(bookObject) {
   const newRow = elBooksTableBody.insertRow()
 
   Object.keys(bookObject).forEach((key) => {
-    const newCell = newRow.insertCell() 
-    if(key === 'read') {
+    const newCell = newRow.insertCell()
+    if (key === 'read') {
       createStatusButton(bookObject, newCell)
     } else {
       const newText = document.createTextNode(bookObject[key])
@@ -80,12 +82,12 @@ function deleteBook(deleteBtn) {
   const bookRow = deleteBtn.parentNode.parentNode.rowIndex - 1
 
   elBooksTableBody.deleteRow(bookRow)
-  
+
   for (let i = myLibrary.length - 1; i >= 0; --i) {
     if (myLibrary[i].title === bookTitle) {
       myLibrary.splice(i, 1)
     }
-  }  
+  }
 }
 
 function createStatusButton(bookObject, tableCell) {
@@ -98,7 +100,7 @@ function createStatusButton(bookObject, tableCell) {
 
 function changeBookStatus(statusBtn) {
   const bookTitle = statusBtn.parentNode.parentNode.firstElementChild.innerHTML
-  
+
   for (let i = myLibrary.length - 1; i >= 0; --i) {
     if (myLibrary[i].title === bookTitle) {
       myLibrary[i].toggleRead()

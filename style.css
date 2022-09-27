@@ -13,7 +13,7 @@
 
 body {
   font-family: raleway, sans-serif;
-  background-color: var(--light-blue);;
+  background-color: var(--light-blue);
   height: 100vh;
 }
 
@@ -70,7 +70,8 @@ th.new-book-btn-container {
 }
 
 tr {
-  border: 1px solid var(--light-blue);;
+  border: 1px solid var(--light-blue);
+  ;
 }
 
 tr td:first-child {
@@ -104,7 +105,8 @@ td {
 }
 
 .modal-content {
-  background-color: var(--light-blue);;
+  background-color: var(--light-blue);
+  ;
   height: max-content;
   width: 300px;
   border-radius: 5px;
