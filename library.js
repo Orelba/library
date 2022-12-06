@@ -63,11 +63,7 @@ function addBookToLibrary() {
     if(pages.validity.stepMismatch) {
       pages.setCustomValidity('Page number must be a whole number')
       pages.reportValidity()
-    } else {
-      pages.setCustomValidity('')
-    }
-
-    if(pages.validity.rangeUnderflow) {
+    } else if (pages.validity.rangeUnderflow) {
       pages.setCustomValidity('The book must have more than 24 pages')
       pages.reportValidity()
     } else {
