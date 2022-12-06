@@ -2,9 +2,11 @@ const elBooksTableBody = document.querySelector('.books')
 const elNewBookBtn = document.querySelector('.new-book-btn')
 const elModal = document.querySelector('.modal')
 const elCloseModalBtn = document.querySelector('.close-modal-btn')
+const addBookForm = document.querySelector('.new-book-form')
 
 elNewBookBtn.addEventListener('click', openNewBookModal)
 elCloseModalBtn.addEventListener('click', closeNewBookModal)
+addBookForm.addEventListener('submit', addBookToLibrary)
 
 let myLibrary = []
 
@@ -43,6 +45,36 @@ function addBookToLibrary() {
   form.reset()
   return false // Stop form submission
 }
+
+(function validateBookForm() {
+  const author = document.getElementById('author')
+  const pages = document.getElementById('pages')
+
+  author.addEventListener('input', () => {
+    if(author.validity.patternMismatch) {
+      author.setCustomValidity('Author name cannot have numbers or special characters')
+      author.reportValidity()
+    } else {
+      author.setCustomValidity('')
+    }
+  })
+
+  pages.addEventListener('input', () => {
+    if(pages.validity.stepMismatch) {
+      pages.setCustomValidity('Page number must be a whole number')
+      pages.reportValidity()
+    } else {
+      pages.setCustomValidity('')
+    }
+
+    if(pages.validity.rangeUnderflow) {
+      pages.setCustomValidity('The book must have more than 24 pages')
+      pages.reportValidity()
+    } else {
+      pages.setCustomValidity('')
+    }
+  })
+})()
 
 function insertBookRow(bookObject) {
   const newRow = elBooksTableBody.insertRow()

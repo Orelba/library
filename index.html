@@ -42,18 +42,18 @@
     <div class="modal-content">
       <span class="close-modal-btn noselect">&times;</span>
       <h2>New Book</h2>
-      <form class="new-book-form" action="#" onsubmit="return addBookToLibrary()">
+      <form class="new-book-form" action="#">
         <div class="input-container">
           <label for="title">Title:</label>
           <input type="text" name="title" id="title" required>
         </div>
         <div class="input-container">
           <label for="author">Author:</label>
-          <input type="text" name="author" id="author" required>
+          <input type="text" name="author" id="author" pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$" required>
         </div>
         <div class="input-container">
           <label for="pages">Pages:</label>
-          <input type="number" name="pages" id="pages" required>
+          <input type="number" name="pages" id="pages" min="24" step="1" required>
         </div>
         <div class="checkbox-container">
           <label for="read">Read?&nbsp;</label>
